@@ -1,0 +1,324 @@
+.admin-dashboard {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .dashboard-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .header-info {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+  }
+  
+  .header-info span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+  
+  .incidents-section {
+    margin-bottom: 40px;
+  }
+  
+  .incidents-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .active-section h2 {
+    color: #e74c3c;
+  }
+  
+  .completed-section h2 {
+    color: #27ae60;
+  }
+  
+  .incidents-list {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .incident-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .incident-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  
+  .incident-card.active {
+    border-left: 5px solid #e74c3c;
+  }
+  
+  .incident-card.completed {
+    border-left: 5px solid #27ae60;
+    opacity: 0.85;
+  }
+  
+  .incident-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .incident-tags {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tag-type, .tag-priority {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .tag-type.medical {
+    background: #fee;
+    color: #c00;
+  }
+  
+  .tag-type.fire {
+    background: #ffe4e1;
+    color: #ff4500;
+  }
+  
+  .tag-type.accident {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  .tag-priority.high {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  .tag-priority.medium {
+    background: #fff3e0;
+    color: #ef6c00;
+  }
+  
+  .tag-priority.low {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .incident-time {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .incident-details {
+    margin-bottom: 15px;
+  }
+  
+  .incident-description {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .incident-reporter,
+  .incident-location,
+  .incident-completed-info {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .incident-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .incident-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .btn-view-location {
+    background: #3498db;
+    color: white;
+  }
+  
+  .btn-view-location:hover {
+    background: #2980b9;
+  }
+  
+  .btn-view-location.secondary {
+    background: #95a5a6;
+  }
+  
+  .btn-view-location.secondary:hover {
+    background: #7f8c8d;
+  }
+  
+  .btn-accept {
+    background: #27ae60;
+    color: white;
+  }
+  
+  .btn-accept:hover {
+    background: #229954;
+  }
+  
+  .btn-complete {
+    background: #f39c12;
+    color: white;
+  }
+  
+  .btn-complete:hover {
+    background: #e67e22;
+  }
+  
+  .incident-status-badge {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .incident-status-badge.responding {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .no-incidents {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 16px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: auto;
+  }
+  
+  .modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .close-btn:hover {
+    color: #333;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-body p {
+    margin: 10px 0;
+  }
+  
+  .modal-body iframe {
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+  
+  .open-maps-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #4285f4;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  
+  .open-maps-link:hover {
+    background: #357ae8;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dashboard-header {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .incident-actions {
+      flex-direction: column;
+    }
+    
+    .incident-actions button {
+      width: 100%;
+    }
+  }
+  
